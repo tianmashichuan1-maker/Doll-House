@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClCompile Include="App.cpp" />
     <ClCompile Include="BootScene.cpp" />
+    <ClCompile Include="Box.cpp" />
     <ClCompile Include="Field.cpp" />
     <ClCompile Include="imgui.cpp" />
     <ClCompile Include="imgui_draw.cpp" />
@@ -158,6 +159,7 @@
   <ItemGroup>
     <ClInclude Include="App.h" />
     <ClInclude Include="BootScene.h" />
+    <ClInclude Include="Box.h" />
     <ClInclude Include="Field.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="imconfig.h" />

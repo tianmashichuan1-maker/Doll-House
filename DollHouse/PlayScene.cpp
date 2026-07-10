@@ -1,11 +1,13 @@
 #include "PlayScene.h"
 #include "Player.h"
 #include "Field.h"
+#include "Box.h"
 
 PlayScene::PlayScene()
 {
 	new Player;
 	new Field;
+	new Box;
 }
 
 PlayScene::~PlayScene()
