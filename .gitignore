@@ -16,13 +16,13 @@
 
 # Debugger Files
 *.pdb
+*.idb
 
 # Compiled Dynamic libraries
 *.so
 *.dylib
 *.dll
 *.so.*
-
 
 # Fortran module files
 *.mod
@@ -67,3 +67,43 @@ vcpkg_installed/
 # test output & cache
 Testing/
 .cache/
+
+########################################
+# Visual Studio / MSVC specific ignores
+########################################
+
+# VS build folders
+Debug/
+Release/
+x64/
+x86/
+ARM/
+ARM64/
+
+# VS intermediate files
+*.sdf
+*.suo
+*.user
+*.ipch
+*.aps
+*.ncb
+*.opendb
+*.VC.db
+*.VC.opendb
+
+# VS cache
+.vs/
+
+########################################
+# DXLib specific ignores
+########################################
+
+# DXLib build outputs
+DxLibMake/
+DxLibMake64/
+DxLibMake32/
+
+# DXLib temp files
+*.hsp
+*.hpi
+*.hpd
