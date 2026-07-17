@@ -10,8 +10,9 @@ public:
 	~Player();
 	void Update() override;
 	void Draw() override;
+	void Reset();
 
-	void SetBox(Box* box);
+	void SetBox(Box* b);
 
 	//“–‚½‚è”»’è
 	RECT GetAABB() const;

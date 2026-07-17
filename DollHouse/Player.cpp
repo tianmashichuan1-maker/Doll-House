@@ -5,12 +5,20 @@
 Player::Player()
 {
 	hImage = LoadGraph("image/aoi.png");
-	x = Screen::WIDTH / 2;
-	y = Screen::HEIGHT / 2;
+	x = Screen::WIDTH / 2.0f;
+	y = Screen::HEIGHT / 2.0f;
+	box = nullptr;
 }
 
 Player::~Player()
 {
+}
+
+// プレイヤーの位置を初期位置に戻す
+void Player::Reset()
+{
+	x = Screen::WIDTH / 2.0f;
+	y = Screen::HEIGHT / 2.0f;
 }
 
 RECT Player::GetAABB() const
@@ -23,39 +31,41 @@ RECT Player::GetAABB() const
 	return rc;
 }
 
-void Player::SetBox(Box* box)
+void Player::SetBox(Box* b)
 {
-	
+	box = b;
 }
 
 void Player::Update()
 {
-	float nextX = x;
-	float nextY = y;
+	if (box == nullptr) return;
+
+	float walkX = x;
+	float walkY = y;
 
 	if (CheckHitKey(KEY_INPUT_D))
 	{
-		x += 2.0f;  //右に進む
+		walkX += 1.0f;  //右に進む
 	}
-	if (CheckHitKey(KEY_INPUT_A))
+	else if (CheckHitKey(KEY_INPUT_A))
 	{
-		x -= 2.0f;
+		walkX -= 1.0f;
 	}
-	if (CheckHitKey(KEY_INPUT_W))
+	else if (CheckHitKey(KEY_INPUT_W))
 	{
-		y -= 2.0f;
+		walkY -= 1.0f;
 	}
-	if (CheckHitKey(KEY_INPUT_S))
+	else if (CheckHitKey(KEY_INPUT_S))
 	{
-		y += 2.0f;
+		walkY += 1.0f;
 	}
 
 	// 次の位置の当たり判定用の矩形
 	RECT nextPlayerAABB = {
-		(int)nextX,
-		(int)nextY,
-		(int)nextX + 64,
-		(int)nextY + 64
+		(int)walkX,
+		(int)walkY,
+		(int)walkX + 64,
+		(int)walkY + 64
 	};
 
 	// Box の AABB を取得
@@ -68,10 +78,10 @@ void Player::Update()
 		float pushX = 0.0f;
 		float pushY = 0.0f;
 
-		if (nextX > x) pushX = 2.0f;   // 右へ押す
-		if (nextX < x) pushX = -2.0f;  // 左へ押す
-		if (nextY > y) pushY = 2.0f;   // 下へ押す
-		if (nextY < y) pushY = -2.0f;  // 上へ押す
+		if (walkX > x) pushX = 2.0f;   // 右へ押す
+		if (walkX < x) pushX = -2.0f;  // 左へ押す
+		if (walkY > y) pushY = 2.0f;   // 下へ押す
+		if (walkY < y) pushY = -2.0f;  // 上へ押す
 
 		// 箱の次の位置を計算
 		float nextBoxX = box->x + pushX;
@@ -89,14 +99,14 @@ void Player::Update()
 		box->y = nextBoxY;
 
 		// プレイヤーも箱に合わせて移動
-		x = nextX;
-		y = nextY;
+		x = walkX;
+		y = walkY;
 	}
 	else
 	{
 		// 当たっていないなら普通に移動
-		x = nextX;
-		y = nextY;
+		x = walkX;
+		y = walkY;
 	}
 	
 }

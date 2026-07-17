@@ -8,6 +8,7 @@ public:
 	~Box();
 	void Update() override;
 	void Draw() override;
+	void Reset();
 
 	//“–‚½‚è”»’è
 	RECT GetAABB() const;

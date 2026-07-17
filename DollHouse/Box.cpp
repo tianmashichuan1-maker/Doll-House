@@ -11,6 +11,13 @@ Box::~Box()
 {
 }
 
+void Box::Reset()
+{
+    // ” ‚ÌˆÊ’u‚ğ‰ŠúˆÊ’u‚É–ß‚·
+    x = 500.0f;
+    y = 250.0f;
+}
+
 void Box::Update()
 {
 }
