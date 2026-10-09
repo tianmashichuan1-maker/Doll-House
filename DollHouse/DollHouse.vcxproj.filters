@@ -30,9 +30,6 @@
     <ClCompile Include="ObjectManager.cpp">
       <Filter>Library</Filter>
     </ClCompile>
-    <ClCompile Include="Time.cpp">
-      <Filter>Library</Filter>
-    </ClCompile>
     <ClCompile Include="BootScene.cpp">
       <Filter>BootScene</Filter>
     </ClCompile>
@@ -75,6 +72,9 @@
     </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>PlayScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Time.cpp">
+      <Filter>Library</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

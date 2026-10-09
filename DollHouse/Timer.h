@@ -10,9 +10,11 @@ public:
 	void Draw();
 	void Start();
 	void Stop();
+	void SetTime(float time);
+	void Reset();
 	
 	float GetRemainingTime() const;
-	float GetRemainingSeconds() const;
+	int GetRemainingSeconds() const;
 	bool IsTimeUp() const;
 
 private:

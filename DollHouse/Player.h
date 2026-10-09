@@ -21,6 +21,7 @@ private:
 	int hImage;
 	float x, y;
 
+
 	bool IsHit(const RECT& a, const RECT& b)
 	{
 		return (a.left   < b.right &&

@@ -8,6 +8,7 @@ Player::Player()
 	x = Screen::WIDTH / 2.0f;
 	y = Screen::HEIGHT / 2.0f;
 	box = nullptr;
+
 }
 
 Player::~Player()
