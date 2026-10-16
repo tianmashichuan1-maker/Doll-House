@@ -13,9 +13,11 @@ public:
 	//“–‚½‚è”»’è
 	RECT GetAABB() const;
 
-	float x, y;
+	void Move(float dx, float dy);
 
 private:
 	int hImage;
+	float x;
+	float y;
 };
 

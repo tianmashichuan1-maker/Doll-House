@@ -1,4 +1,5 @@
 #include "Timer.h"
+#include "DxLib.h"
 #include <cmath>
 
 Timer::Timer()
@@ -72,4 +73,9 @@ int Timer::GetRemainingSeconds() const
 bool Timer::IsTimeUp() const
 {
     return remainingTime <= 0.0f;
+}
+
+void Timer::Draw()
+{
+    DrawFormatString(500,20,GetColor(255, 255, 255),"TIME : %d",GetRemainingSeconds());
 }

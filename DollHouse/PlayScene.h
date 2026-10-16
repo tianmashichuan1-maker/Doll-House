@@ -1,5 +1,6 @@
 #pragma once
 #include "SceneBase.h"
+#include "Timer.h"
 
 class Player;
 class Box;
@@ -18,4 +19,6 @@ public:
 private:
 	Player* player;
 	Box* box;
+
+	Timer timer;
 };

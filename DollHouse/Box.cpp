@@ -1,4 +1,5 @@
 #include "Box.h"
+#include "DxLib.h"
 
 Box::Box()
 {
@@ -9,6 +10,10 @@ Box::Box()
 
 Box::~Box()
 {
+    if (hImage != -1)
+    {
+        DeleteGraph(hImage);
+    }
 }
 
 void Box::Reset()
@@ -16,6 +21,12 @@ void Box::Reset()
     // î†ÇÃà íuÇèâä˙à íuÇ…ñﬂÇ∑
     x = 500.0f;
     y = 250.0f;
+}
+
+void Box::Move(float dx, float dy)
+{
+    x += dx;
+    y += dy;
 }
 
 void Box::Update()

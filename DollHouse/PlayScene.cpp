@@ -9,6 +9,9 @@ PlayScene::PlayScene()
 	box = new Box();
 
 	player->SetBox(box);
+
+	timer.SetTime(10.0f);
+	timer.Start();
 }
 
 PlayScene::~PlayScene()
@@ -19,31 +22,44 @@ PlayScene::~PlayScene()
 
 void PlayScene::Update()
 {
+	timer.Update();
+
+/*	if (timer.IsTimeUp())
+	{
+		SceneManager::ChangeScene("TITLE");
+		return;
+	}
+	*/
+
 	//プレイヤーの更新処理を毎フレーム呼び出す
-	if (player != nullptr) {
+	if (player != nullptr) 
+	{
 		player->Update();
 	}
 
 	//キーが押されたら位置をリセットする
-	if (CheckHitKey(KEY_INPUT_R)) {
-		if (player != nullptr) {
-			player->Reset();
-		}
-		if (box != nullptr) {
-			box->Reset();
-		}
+	if (CheckHitKey(KEY_INPUT_R)) 
+	{
+		player->Reset();
+		box->Reset();
+
+		timer.Reset();
+		timer.Start();
 	}
 
-	if (CheckHitKey(KEY_INPUT_T)) {
+	if (CheckHitKey(KEY_INPUT_T)) 
+	{
 		SceneManager::ChangeScene("TITLE");
 	}
 }
 
 void PlayScene::Draw()
 {
-	// 4. 背景やオブジェクトの描画処理を呼び出す
+	/* 4. 背景やオブジェクトの描画処理を呼び出す
 	if (box != nullptr)    box->Draw();
-	if (player != nullptr) player->Draw();
+	if (player != nullptr) player->Draw();*/
+
+	timer.Draw();
 
 	DrawString(0, 0, "PLAY SCENE", GetColor(255, 255, 255));
 	DrawString(100, 400, "Push [T]Key To Title", GetColor(255, 255, 255));

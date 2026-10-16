@@ -13,6 +13,10 @@ Player::Player()
 
 Player::~Player()
 {
+	if (hImage != -1)
+	{
+		DeleteGraph(hImage);
+	}
 }
 
 // プレイヤーの位置を初期位置に戻す
@@ -84,20 +88,7 @@ void Player::Update()
 		if (walkY > y) pushY = 2.0f;   // 下へ押す
 		if (walkY < y) pushY = -2.0f;  // 上へ押す
 
-		// 箱の次の位置を計算
-		float nextBoxX = box->x + pushX;
-		float nextBoxY = box->y + pushY;
-
-		RECT nextBoxAABB = {
-			(int)nextBoxX,
-			(int)nextBoxY,
-			(int)nextBoxX + 64,
-			(int)nextBoxY + 64
-		};
-
-		// 箱が壁などにぶつからない場合のみ押す（壁判定は後で追加）
-		box->x = nextBoxX;
-		box->y = nextBoxY;
+		box->Move(pushX, pushY);
 
 		// プレイヤーも箱に合わせて移動
 		x = walkX;

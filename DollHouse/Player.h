@@ -18,10 +18,6 @@ public:
 	RECT GetAABB() const;
 
 private:
-	int hImage;
-	float x, y;
-
-
 	bool IsHit(const RECT& a, const RECT& b)
 	{
 		return (a.left   < b.right &&
@@ -30,6 +26,13 @@ private:
 			a.bottom > b.top);
 	}
 
+private:
+	int hImage;
+
+	float x;
+	float y;
+
 	Box* box;
+
 };
 
