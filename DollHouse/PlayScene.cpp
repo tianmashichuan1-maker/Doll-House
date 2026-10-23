@@ -16,25 +16,18 @@ PlayScene::PlayScene()
 
 PlayScene::~PlayScene()
 {
-	delete player;
-	delete box;
+	//delete player;
+	//delete box;
 }
 
 void PlayScene::Update()
 {
 	timer.Update();
 
-/*	if (timer.IsTimeUp())
+	if (timer.IsTimeUp())
 	{
 		SceneManager::ChangeScene("TITLE");
 		return;
-	}
-	*/
-
-	//プレイヤーの更新処理を毎フレーム呼び出す
-	if (player != nullptr) 
-	{
-		player->Update();
 	}
 
 	//キーが押されたら位置をリセットする
@@ -55,10 +48,6 @@ void PlayScene::Update()
 
 void PlayScene::Draw()
 {
-	/* 4. 背景やオブジェクトの描画処理を呼び出す
-	if (box != nullptr)    box->Draw();
-	if (player != nullptr) player->Draw();*/
-
 	timer.Draw();
 
 	DrawString(0, 0, "PLAY SCENE", GetColor(255, 255, 255));

@@ -45,32 +45,40 @@ void Player::Update()
 {
 	if (box == nullptr) return;
 
-	float walkX = x;
-	float walkY = y;
+	float moveX = 0.0f;
+	float moveY = 0.0f;
+
+	const float SPEED = 6.0f;
 
 	if (CheckHitKey(KEY_INPUT_D))
 	{
-		walkX += 1.0f;  //右に進む
+		moveX = SPEED;
 	}
-	else if (CheckHitKey(KEY_INPUT_A))
+
+	if (CheckHitKey(KEY_INPUT_A))
 	{
-		walkX -= 1.0f;
+		moveX = -SPEED;
 	}
-	else if (CheckHitKey(KEY_INPUT_W))
+	
+	if (CheckHitKey(KEY_INPUT_W))
 	{
-		walkY -= 1.0f;
+		moveY = -SPEED;
 	}
-	else if (CheckHitKey(KEY_INPUT_S))
+	
+	if (CheckHitKey(KEY_INPUT_S))
 	{
-		walkY += 1.0f;
+		moveY = SPEED;
 	}
+
+	float walkX = x + moveX;
+	float walkY = y + moveY;
 
 	// 次の位置の当たり判定用の矩形
 	RECT nextPlayerAABB = {
-		(int)walkX,
-		(int)walkY,
-		(int)walkX + 64,
-		(int)walkY + 64
+		(LONG)walkX,
+		(LONG)walkY,
+		(LONG)(walkX + 64),
+		(LONG)(walkY + 64)
 	};
 
 	// Box の AABB を取得
@@ -79,20 +87,34 @@ void Player::Update()
 	// 当たり判定
 	if (IsHit(nextPlayerAABB, boxAABB))
 	{
-		// 衝突している場合：箱を押す方向を判定
-		float pushX = 0.0f;
-		float pushY = 0.0f;
+		// 箱を押す
+		box->Move(moveX, moveY);
 
-		if (walkX > x) pushX = 2.0f;   // 右へ押す
-		if (walkX < x) pushX = -2.0f;  // 左へ押す
-		if (walkY > y) pushY = 2.0f;   // 下へ押す
-		if (walkY < y) pushY = -2.0f;  // 上へ押す
+		// 箱の移動後の位置を取得
+		boxAABB = box->GetAABB();
 
-		box->Move(pushX, pushY);
+		//プレイヤーを箱の端へ補正
+		// 右へ移動
+		if (moveX > 0)
+		{
+			x = (float)boxAABB.left - 64.0f;
+		}
+		// 左へ移動
+		else if (moveX < 0)
+		{
+			x = (float)boxAABB.right;
+		}
 
-		// プレイヤーも箱に合わせて移動
-		x = walkX;
-		y = walkY;
+		// 下へ移動
+		if (moveY > 0)
+		{
+			y = (float)boxAABB.top - 64.0f;
+		}
+		// 上へ移動
+		else if (moveY < 0)
+		{
+			y = (float)boxAABB.bottom;
+		}
 	}
 	else
 	{
