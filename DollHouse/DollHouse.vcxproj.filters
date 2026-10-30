@@ -76,6 +76,9 @@
     <ClCompile Include="Time.cpp">
       <Filter>Library</Filter>
     </ClCompile>
+    <ClCompile Include="GameOverScene.cpp">
+      <Filter>TitleScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -148,6 +151,9 @@
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>PlayScene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverScene.h">
+      <Filter>TitleScene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

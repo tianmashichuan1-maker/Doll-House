@@ -138,6 +138,7 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="BootScene.cpp" />
     <ClCompile Include="Box.cpp" />
+    <ClCompile Include="GameOverScene.cpp" />
     <ClCompile Include="imgui.cpp" />
     <ClCompile Include="imgui_draw.cpp" />
     <ClCompile Include="imgui_impl_dx11.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="BootScene.h" />
     <ClInclude Include="Box.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GameOverScene.h" />
     <ClInclude Include="imconfig.h" />
     <ClInclude Include="imgui.h" />
     <ClInclude Include="imgui_impl_dx11.h" />

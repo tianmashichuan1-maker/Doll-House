@@ -10,14 +10,12 @@ PlayScene::PlayScene()
 
 	player->SetBox(box);
 
-	timer.SetTime(10.0f);
+	timer.SetTime(3.0f);
 	timer.Start();
 }
 
 PlayScene::~PlayScene()
 {
-	//delete player;
-	//delete box;
 }
 
 void PlayScene::Update()
@@ -26,7 +24,7 @@ void PlayScene::Update()
 
 	if (timer.IsTimeUp())
 	{
-		SceneManager::ChangeScene("TITLE");
+		SceneManager::ChangeScene("GAMEOVER");
 		return;
 	}
 
@@ -36,8 +34,8 @@ void PlayScene::Update()
 		player->Reset();
 		box->Reset();
 
-		timer.Reset();
-		timer.Start();
+		//timer.Reset();
+		//timer.Start();
 	}
 
 	if (CheckHitKey(KEY_INPUT_T)) 
