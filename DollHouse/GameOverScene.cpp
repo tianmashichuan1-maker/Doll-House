@@ -24,8 +24,7 @@ void GameOverScene::Update()
 
 void GameOverScene::Draw()
 {
-	DrawGraph(25, 50, hImage, TRUE);
-	DrawString(0, 0, "GAMEOVER SCENE", GetColor(255, 255, 255));
+	DrawGraph(20, 30, hImage, TRUE);
 	DrawString(100, 300, "Push [T]Key To Title", GetColor(255, 255, 255));
 	DrawString(100, 400, "Push [P]Key To Play", GetColor(255, 255, 255));
 }

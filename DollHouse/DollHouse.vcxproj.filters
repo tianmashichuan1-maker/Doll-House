@@ -79,6 +79,12 @@
     <ClCompile Include="GameOverScene.cpp">
       <Filter>TitleScene</Filter>
     </ClCompile>
+    <ClCompile Include="GameClearScene.cpp">
+      <Filter>TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="StageSelectScene.cpp">
+      <Filter>TitleScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -153,6 +159,12 @@
       <Filter>PlayScene</Filter>
     </ClInclude>
     <ClInclude Include="GameOverScene.h">
+      <Filter>TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="GameClearScene.h">
+      <Filter>TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="StageSelectScene.h">
       <Filter>TitleScene</Filter>
     </ClInclude>
   </ItemGroup>

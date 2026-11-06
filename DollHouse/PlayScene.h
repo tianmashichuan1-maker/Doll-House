@@ -5,9 +5,6 @@
 class Player;
 class Box;
 
-/// <summary>
-/// ゲームプレイのシーンを制御する
-/// </summary>
 class PlayScene : public SceneBase
 {
 public:

@@ -3,8 +3,10 @@
 #include <assert.h>
 #include "BootScene.h"
 #include "TitleScene.h"
+#include "StageSelectScene.h"
 #include "PlayScene.h"
 #include "GameOverScene.h"
+#include "GameClearScene.h"
 
 SceneBase* SceneFactory::CreateFirst()
 {
@@ -17,13 +19,25 @@ SceneBase* SceneFactory::Create(const std::string& name)
 	{
 		return new TitleScene();
 	}
+
+	if (name == "STAGESELECT")
+	{
+		return new StageSelectScene();
+	}
+
 	if (name == "PLAY")
 	{
 		return new PlayScene();
 	}
+
 	if (name == "GAMEOVER")
 	{
 		return new GameOverScene();
+	}
+
+	if (name == "GAMECLEAR")
+	{
+		return new GameClearScene();
 	}
 
 	MessageBox(NULL, ("éüÇÃÉVÅ[ÉìÇÕÇ†ÇËÇ‹ÇπÇÒ\n" + name).c_str(), "SceneFactory", MB_ICONERROR | MB_OK);
