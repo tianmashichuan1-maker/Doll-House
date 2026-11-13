@@ -16,6 +16,5 @@ public:
 private:
 	Player* player;
 	Box* box;
-
 	Timer timer;
 };

@@ -28,14 +28,16 @@ void PlayScene::Update()
 		return;
 	}
 
+	if (CheckHitKey(KEY_INPUT_Q))
+	{
+		
+	}
+
 	//キーが押されたら位置をリセットする
 	if (CheckHitKey(KEY_INPUT_R)) 
 	{
 		player->Reset();
 		box->Reset();
-
-		//timer.Reset();
-		//timer.Start();
 	}
 
 	if (CheckHitKey(KEY_INPUT_T)) 

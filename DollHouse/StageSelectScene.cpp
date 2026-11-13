@@ -2,7 +2,7 @@
 
 StageSelectScene::StageSelectScene()
 {
-	hImage = LoadGraph("Image/GameOver.png");
+	hImage = LoadGraph("Image/StageSelect.png");
 }
 
 StageSelectScene::~StageSelectScene()
